@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nosotros</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #1a1a2e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #0088cc;
+        }
+
+        /* Fondo con corazones en movimiento */
+        .background-heart {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .background-heart::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 21%) 0 0,
+                        radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 21%) 50% 50%;
+            background-size: 50px 50px;
+            animation: moveBackground 30s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0, 50% 50%; }
+            100% { background-position: 50% 50%, 0 0; }
+        }
+
+        /* Corazones animados en el fondo */
+        .background-heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPHBhdGggZD0iTTUwIDBDMzkuNTQzIDAgMzMuNzQyIDMuOTM1IDE4LjcwMyA1Ljc4NSAxOS45MzUgMy41OTMgMjEuNDc0IDIuOTY4IDIyLjg2MyAzLjA2IDExLjYyNSA1LjcxNyAxNy4yMjEgNS4yMjUgMTguMzc1IDIyLjk2IDkuNTc0IDIyLjk2QzExLjI2IDExLjc4NyA1LjYwMyA0LjA2NCAyMC4xNzMgMi4yNDUgMjAuNTQzIDMuMzkzIDIwLjA3NyAyLjQ2MyAxNi4zNjEgMy43MzkgMTguMjY5IDIyLjk2IDEyLjUzNSAyMy43MTYgMTQuNDg5IDEyLjY0OCAxNC45ODAgMTEuMjQwIDEzLjE3NiBDNy4yODAgMTkuNzczIDE4Ljc0MiAyMC4xMjEgMjIuODU1IDEzLjIyMiBDMTcuMjU3IDE4LjIyNiAxMC44MjcgMjIuMDcxIDguMzU2IDIyLjA3NiBDNi4wODMgMjIuMDc2IDMuMzE0IDE4Ljc0MiAzLjM5MyBDMjIuMjQ4IDE3LjI4NiAyNi4xNjkgMTEuNzcgMjAuNzQ4IDMwLjA2IDEwLjk1MCAyMC4wNjMgMTUuNzY1IDE5Ljk5MSAxNy4yMDUgMTguMzA3IDIyLjMwOCAxMi4xMjMgMjAuMzc5QzkuMTQ3IDIyLjQ5IDAuMzc5IDMyLjAzMiAxMC43MDggMzAuNzgyIDIwLjQzIDIyLjA3NiA2LjExMiAyMC41MTggMTEuNTYyQzEwLjk4MyAyMC40MTMgMTguNzg2IDYuMTU1IDE4LjY5NyA5LjYyNyAzMC41NDggMTEuNTYzMjAiIHN0cm9rZT0iIzAwMGIiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVjb3Vsb3I9InJvdW5kIiBzdHJva2UtbGluZWNhcD0ibm9uZSIgc3Ryb2tlLW9wYWNpdHk9IjAuNyIvPjwvc3ZnPg==') no-repeat;
+            background-size: 150px 150px;
+            background-repeat: repeat;
+            animation: moveHearts 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveHearts {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        /* Sección principal */
+        main {
+            padding: 20px;
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: transparent;
+            z-index: 0;
+        }
+
+        .heart-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            background-color: #00aaff;
+            clip-path: polygon(50% 0%, 100% 30%, 100% 80%, 50% 100%, 0% 80%, 0% 30%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .heart-container h2 {
+            color: white;
+            font-size: 3rem;
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .heart-container iframe {
+            width: 80%;
+            height: 60vh;
+            border: none;
+            position: relative;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .heart-container h2 {
+                font-size: 2rem;
+            }
+
+            .heart-container iframe {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tu y Yo</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/viernes13.html">Viernes 13</a></li>
+                <li><a href="/floresamarillas.html">Flores Amarillas</a></li>
+                <li><a href="/oct4.html">Octubre 4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="background-heart"></div>
+        <div class="heart-container">
+            <h2>TE AMO</h2>
+            <!-- Reemplaza el src con el enlace del video correcto -->
+            <iframe src="/img/Marcos Menchaca - Viernes 13 (Letra).mp4" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span class="blue-heart">❤️</span> TE AMO Mi PINCHECHA.</p>
+    </footer>
+</body>
+</html>
